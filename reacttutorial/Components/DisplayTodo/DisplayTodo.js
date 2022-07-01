@@ -1,10 +1,11 @@
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
-const DisplayTodo = () => {
-    
+const DisplayTodo = ({ id_, task, removeTask }) => {
+    console.log(id_)
   return (
     <View>
-      <Text></Text>
+      <Text>{task}</Text>
+      <Button onPress={() => removeTask(id_)} title="Remove Task" />
     </View>
   );
 };

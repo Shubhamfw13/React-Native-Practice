@@ -13,16 +13,20 @@ const AddTodo = () => {
     };
     setAddTodo([...addTodo, list]);
   };
-  console.log(addTodo)
+  
+  const removeTodoFunction = (id) => {
+    const updatedList = addTodo.filter((e) => e.id_ !== id);
+    setAddTodo(updatedList);
+  };
 
   return (
     <View style={styles.todo_container}>
       <Text>Todo List</Text>
       <TextInput onChangeText={setTodoInput} placeholder="Add Todo" />
       <Button onPress={addTodoFunction} title="Add Todo" />
-      {/* {addTodo.map((todo) => (
-        <DisplayTodo  {...todo} />
-      ))} */}
+      {addTodo.map((todo) => (
+        <DisplayTodo removeTask={removeTodoFunction} key={todo.id_} {...todo} />
+      ))}
     </View>
   );
 };
